@@ -14,4 +14,4 @@ print(soup.prettify()[:1000])
 
 print('Pandas: ')
 url_dados = pandas.read_html('https://www.infomoney.com.br/cotacoes/b3/indice/ibovespa/')
-print(url_dados)
+print(url_dados[2].head(10))
