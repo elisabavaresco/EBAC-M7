@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import pandas
 
-link = "https://www.infomoney.com.br/cotacoes/b3/indice/ibovespa/historico/"
+link = "https://www.infomoney.com.br/cotacoes/b3/indice/ibovespa/"
 
 print('Request: ')
 response = requests.get(link)
@@ -13,5 +13,5 @@ soup = BeautifulSoup(response.text, 'html.parser')
 print(soup.prettify()[:1000])
 
 print('Pandas: ')
-url_dados = pandas.read_html("https://www.infomoney.com.br/cotacoes/b3/indice/ibovespa/historico/")
+url_dados = pandas.read_html('https://www.infomoney.com.br/cotacoes/b3/indice/ibovespa/')
 print(url_dados)
