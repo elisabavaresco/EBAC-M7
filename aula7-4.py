@@ -6,7 +6,7 @@ requisicao = requests.get(url)
 extracao = BeautifulSoup(requisicao.text, 'html.parser')
 
 # Exibir o texto
-# print(extracao.text.strip()) # o strip() é para remover os espaços em branco
+print(extracao.text.strip()) # o strip() é para remover os espaços em branco
 
 # Filtrar a exibição pela tag
 for linha_texto in extracao.find_all('h2'):
@@ -23,13 +23,11 @@ Contar quantos h2 e p existem no documento (linha_texto.name == tag)
 
 total_h2 = 0
 for linha_texto in extracao.find_all('h2'):
-    if True:
         total_h2 = total_h2 + 1
 print(total_h2) 
 
 total_p = 0
 for linha_texto in extracao.find_all('p'):
-    if True:
         total_p = total_p + 1
 print(total_p)
 
@@ -49,13 +47,13 @@ print('Total de parágrafos: ', contar_paragrafos)
 
 # Exibir somente o texto das tags h2 e p
 
-# for linha_texto in extracao.find_all(['h2', 'p']):
-#     if linha_texto.name == 'h2':
-#         titulo = linha_texto.text.strip()
-#         print('Título: \n', titulo)
-#     elif linha_texto.name == 'p':
-#         paragrafo = linha_texto.text.strip()
-#         print('Paragrafo: \n', paragrafo)
+for linha_texto in extracao.find_all(['h2', 'p']):
+    if linha_texto.name == 'h2':
+        titulo = linha_texto.text.strip()
+        print('Título: \n', titulo)
+    elif linha_texto.name == 'p':
+        paragrafo = linha_texto.text.strip()
+        print('Paragrafo: \n', paragrafo)
 
 # Exibir tags Aninhadas
 
