@@ -2,7 +2,7 @@ import requests
 
 def enviar_arquivo():
     # Caminho do arquivo para upload
-    caminho = './produtos_informatica.xlsx'
+    caminho = '/Users/elisabavaresco/Downloads/produtos_informatica.xlsx'
 
     # Enviar arquivo
     requisicao = requests.post('https://file.io', files={'file': open(caminho, 'rb')})
