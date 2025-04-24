@@ -5,8 +5,8 @@ def enviar_arquivo():
     caminho = '/Users/elisabavaresco/Downloads/produtos_informatica.xlsx'
 
     # Enviar arquivo
-    requisicao = requests.post('https://file.io', files={'file': open(caminho, 'rb')})
-    saida_requisicao = requisicao.json()
+    requisicao = requests.post('https://file.io', files={'file': open(caminho, 'rb')}) # rb - read binary
+    saida_requisicao = requisicao.json() # pegando a requisição e transformando ela em formato json
 
     print(saida_requisicao)
     url = saida_requisicao['link']
