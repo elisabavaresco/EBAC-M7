@@ -2,11 +2,11 @@ import requests
 
 def enviar_arquivo():
     # Caminho do arquivo para upload
-    caminho = '/Users/elisabavaresco/Downloads/produtos_informatica.xlsx'
+    caminho = './produtos_informatica.xlsx'
 
     # Enviar arquivo
-    requisicao = requests.post('https://file.io', files={open(caminho, 'rb')})
-    saida_requisicao = requisicao.jason()
+    requisicao = requests.post('https://file.io', files={'file': open(caminho, 'rb')})
+    saida_requisicao = requisicao.json()
 
     print(saida_requisicao)
     url = saida_requisicao['link']
@@ -23,7 +23,7 @@ def enviar_arquivo_chave():
         files={'file': open(caminho, 'rb')},
         headers={'Authorization': chave_acesso}
     )
-    saida_requisicao = requisicao.jason()
+    saida_requisicao = requisicao.json()
 
     print(saida_requisicao)
     url = saida_requisicao['link']
@@ -39,4 +39,6 @@ def receber_arquivo(file_url):
             file.write(requisicao.content)
         print("Arquivo baixado com sucesso.")
     else:
-        print("Erro ao baixar o arquivo: ", requisicao.jason())
+        print("Erro ao baixar o arquivo: ", requisicao.json())
+
+enviar_arquivo()
